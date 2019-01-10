@@ -14,37 +14,18 @@
         });
       },
       alert: function(inOptions) {
-        return this.present(
-          nx.mix(
-            {
-              showCancel: false,
-              success: function(res) {
-                if (res.confirm) {
-                  Promise.resolve({ code: 0, data: res });
-                }
-              }
-            },
-            inOptions
-          )
-        );
+        return this.present(nx.mix({ showCancel: false }, inOptions));
       },
       confirm: function(inOptions) {
-        return this.present(
-          nx.mix(
-            {
-              showCancel: true,
-              success: function(res) {
-                if (res.confirm) {
-                  Promise.resolve({ code: 0, data: res });
-                }
-                if (res.cancel) {
-                  Promise.resolve({ code: 1, data: res });
-                }
-              }
-            },
-            inOptions
-          )
-        );
+        return this.present(nx.mix({ showCancel: true }, inOptions)).then(function(res) {
+          var data = res.data;
+          if (data.confirm) {
+            return Promise.resolve({ code: 0, data: data });
+          }
+          if (data.cancel) {
+            return Promise.resolve({ code: 1, data: data });
+          }
+        });
       },
       dismiss: function() {}
     }
