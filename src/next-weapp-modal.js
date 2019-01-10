@@ -20,7 +20,7 @@
               showCancel: false,
               success: function(res) {
                 if (res.confirm) {
-                  Promise.resolve();
+                  Promise.resolve({ code: 0, data: res });
                 }
               }
             },
@@ -35,10 +35,10 @@
               showCancel: true,
               success: function(res) {
                 if (res.confirm) {
-                  Promise.resolve(true);
+                  Promise.resolve({ code: 0, data: res });
                 }
                 if (res.cancel) {
-                  Promise.resolve(false);
+                  Promise.resolve({ code: 1, data: res });
                 }
               }
             },
