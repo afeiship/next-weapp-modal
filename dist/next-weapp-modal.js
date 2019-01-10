@@ -15,31 +15,35 @@
       },
       alert: function(inOptions) {
         return this.present(
-          {
-            showCancel: false,
-            success: function(res) {
-              if (res.confirm) {
-                Promise.resolve();
+          nx.mix(
+            {
+              showCancel: false,
+              success: function(res) {
+                if (res.confirm) {
+                  Promise.resolve();
+                }
               }
-            }
-          },
-          inOptions
+            },
+            inOptions
+          )
         );
       },
       confirm: function(inOptions) {
         return this.present(
-          {
-            showCancel: true,
-            success: function(res) {
-              if (res.confirm) {
-                Promise.resolve(true);
+          nx.mix(
+            {
+              showCancel: true,
+              success: function(res) {
+                if (res.confirm) {
+                  Promise.resolve(true);
+                }
+                if (res.cancel) {
+                  Promise.resolve(false);
+                }
               }
-              if (res.cancel) {
-                Promise.resolve(false);
-              }
-            }
-          },
-          inOptions
+            },
+            inOptions
+          )
         );
       },
       dismiss: function() {}
