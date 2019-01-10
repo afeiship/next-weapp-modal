@@ -1,0 +1,27 @@
+{
+  "name": "next-weapp-modal",
+  "version": "0.0.1",
+  "description": "Modal for weapp",
+  "main": "dist/next-weapp-modal.js",
+  "authors": [
+    "afei"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "next"
+  ],
+  "homepage": "https://github.com/afeiship/next-weapp-modal",
+  "moduleType": [
+    "amd"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src",
+    "build",
+    "gulpfile.js"
+  ]
+}
