@@ -3,7 +3,7 @@
   var nx = global.nx || require('next-js-core2');
   var nxWxPromisify = nx.wxPromisify || require('next-wx-promisify');
   var wx = global.wx;
-  var DEFAULT_OPTIONS = { icon: 'none' };
+  var DEFAULT_OPTIONS = { title: '提示' };
 
   var NxWeappModal = nx.declare('nx.WeappModal', {
     statics: {
